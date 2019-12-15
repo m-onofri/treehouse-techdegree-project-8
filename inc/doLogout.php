@@ -1,10 +1,7 @@
 <?php
 require_once __DIR__ . '/../inc/bootstrap.php';
 
-// $session->remove('auth_logged_in');
-// $session->remove('auth_user_id');
-// $session->remove('auth_roles');
-
-$session->getFlashBag()->add('success', 'Successfully Logged Out');
+//Delete cookie and redirecti to login page
 $cookie = setAuthCookie('expired', 1);
+$session->getFlashBag()->add('success', 'Successfully Logged Out');
 redirect('/login.php', ['cookies' => [$cookie]]);

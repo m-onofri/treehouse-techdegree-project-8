@@ -1,7 +1,6 @@
 <?php
-//task functions
-
-function getTasks($user_id = null, $where = null)
+//Return all the task associated to a specific user
+function getTasks($user_id, $where = null)
 {
     global $db;
     $query = "SELECT * FROM tasks WHERE user_id=:user_id";
@@ -18,14 +17,20 @@ function getTasks($user_id = null, $where = null)
     }
     return $tasks;
 }
+
+//Return all the incomplete task associated to a specific user
 function getIncompleteTasks($user_id)
 {
     return getTasks($user_id, 'status=0');
 }
+
+//Return all the complete task associated to a specific user
 function getCompleteTasks($user_id)
 {
     return getTasks($user_id, 'status=1');
 }
+
+//Return a specific task
 function getTask($task_id)
 {
     global $db;
@@ -41,6 +46,8 @@ function getTask($task_id)
     }
     return $task;
 }
+
+//Create a new task and return the last inserted task
 function createTask($data)
 {
     global $db;
@@ -57,6 +64,8 @@ function createTask($data)
     }
     return getTask($db->lastInsertId());
 }
+
+//Update a specific task and return the updated task
 function updateTask($data)
 {
     global $db;
@@ -74,6 +83,8 @@ function updateTask($data)
     }
     return getTask($data['task_id']);
 }
+
+//Update the status of a specific task and return the updated task
 function updateStatus($data)
 {
     global $db;
@@ -90,6 +101,8 @@ function updateStatus($data)
     }
     return getTask($data['task_id']);
 }
+
+//Delete a specific task. Return true if the task is deleted correctly, otherwise false
 function deleteTask($task_id)
 {
     global $db;

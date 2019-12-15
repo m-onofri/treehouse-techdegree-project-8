@@ -2,19 +2,7 @@
 /*
  * Functions to interface with `user` table
  */
-function getAllUsers()
-{
-    global $db;
-
-    try {
-        $query = "SELECT * FROM users";
-        $stmt = $db->prepare($query);
-        $stmt->execute();
-        return $stmt->fetchAll();
-    } catch (\Exception $e) {
-        throw $e;
-    }
-}
+//Get user data by username
 function findUserByUsername($username)
 {
     global $db;
@@ -30,6 +18,8 @@ function findUserByUsername($username)
         throw $e;
     }
 }
+
+//Get user data by id
 function findUserById($userId)
 {
     global $db;
@@ -45,6 +35,8 @@ function findUserById($userId)
         throw $e;
     }
 }
+
+//Create a new user and return the new created user
 function createUser($username, $password)
 {
     global $db;
@@ -60,6 +52,8 @@ function createUser($username, $password)
         throw $e;
     }
 }
+
+//Update user password and return true if correctly updated, otherwise false
 function updatePassword($password, $userId)
 {
     global $db;
@@ -80,20 +74,4 @@ function updatePassword($password, $userId)
     }
 
     return true;
-}
-
-function changeRole($userId, $roleId)
-{
-    global $db;
-
-    try {
-        $query = "UPDATE users SET role_id = :roleId WHERE id = :userId";
-        $stmt = $db->prepare($query);
-        $stmt->bindParam(':roleId', $roleId);
-        $stmt->bindParam(':userId', $userId);
-        $stmt->execute();
-        return findUserById($userId);
-    } catch (\Exception $e) {
-        throw $e;
-    }
 }
