@@ -1,7 +1,5 @@
 # treehouse-techdegree-project-8
 
-# treehouse-techdegree-project-7
-
 The goal of this project is to add User Authentication to an existing ToDo App.
 
 ## How to install 
@@ -15,6 +13,11 @@ Install the packages:
 ```
 cd treehouse-techdegree-project-8
 composer install
+```
+
+In the **inc** folder create the .env file and insert a secret key required for the generation of the JSON Web Token:
+```
+SECRET_KEY= your_secret_key_here
 ```
 
 Run the server:
@@ -43,13 +46,17 @@ In your browser, go to http://localhost:4000/ and give a look at the ToDo App.
 
 ## Code organization
 
-* The Slim Framework 3 was quickly setup using a [**skeleton application**](https://github.com/slimphp/Slim-Skeleton). 
-* In the **'public'** folder you can find the index.php file;
-* In the **'src'** folder you can find:
-    - the subfolder **Model** containing the **Task** and **Subtask** classes, responsible for managing the data of the application;
-    - the subfolder **Exception** containing the **ApiException** class, responsible for managing exceptions;
-    - the **routes.php** file with all the routes of the project;
-    - the **todo.db** database.
+* In the **'inc'** folder you can find:
+    - the **functions_aut.php** file containing the methods to manage authentication process;
+    - the **functions_tasks.php** file containing the methods to create, read, update and delete tasks in the database;
+    - the **functions_user.php** file containing the methods to create, read, update and delete users in the database;
+    - the **todo.db** SQLite database.
+* In the **'procedures'** folder you can find:
+    - the **action_tasks.php** file containing the code to create, update and delete a task;
+    - the **changePassword.php** file containing the code to update the password;
+    - the **doLogin.php** file containing the code to manage the login process;
+    - the **doLogout.php** file containing the code to manage the logout process;
+    - the **doRegister.php** file containing the code to manage the register process.
 
 ## Cross-browser consistency
 
