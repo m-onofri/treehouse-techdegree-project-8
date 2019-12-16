@@ -7,7 +7,7 @@ $password = request()->get('password');
 $confirm_password = request()->get('confirm_password');
 
 //Get user data
-$user = findUserById($session->get('auth_user_id'));
+$user = findUserById(decodeAuthCookie('auth_user_id'));
 
 //Check if the current password is correct
 if (!password_verify($current_password, $user['password'])) {
@@ -25,5 +25,6 @@ if ($password !== $confirm_password) {
 $hashed = password_hash($password, PASSWORD_DEFAULT);
 //Update the new password
 updatePassword($hashed, $user['id']);
+$session->getFlashBag()->add('success', 'Password is updated successfully');
 //redirect to the index page
 redirect('/index.php');

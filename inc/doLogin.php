@@ -10,13 +10,13 @@ $user = findUserByUsername($username);
 
 //If the user doesn't exists, redirect to login page
 if (empty($user)) {
-    $session->getFlashBag()->add('error', 'Username was not found');
+    $session->getFlashBag()->add('error', 'Invalid username and/or password');
     redirect('/login.php');
 }
 
 //Check if the password is valid
 if (!password_verify($password, $user['password'])) {
-    $session->getFlashBag()->add('error', 'Invalid Password');
+    $session->getFlashBag()->add('error', 'Invalid username and/or password');
     redirect('/login.php');
 }
 
