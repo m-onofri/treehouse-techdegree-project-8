@@ -27,6 +27,19 @@ In your browser, go to http://localhost:4000/ and give a look at the available A
 
  ## Main features
 
+ * New user can register for the application; user's password is stored as a hash.
+ * User can login to the application.
+ * User can logout of the application.
+ * Users can update their password.
+ * The logged in user can see only the tasks associated with his user id.
+ * The logged in user can add new tasks that will be associated only to the logged in user.
+ * The logged in user can update or delate a task.
+
+## Additional features
+
+* Automatic login on registration.
+* Authentication is managed using cookies.
+* The logged in user is secured with JWT (JSON Web Token).
 
 ## Code organization
 
