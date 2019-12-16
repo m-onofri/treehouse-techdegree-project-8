@@ -23,7 +23,7 @@ cd public
 php -S localhost:4000
 ```
 
-In your browser, go to http://localhost:4000/ and give a look at the available API endpoints.
+In your browser, go to http://localhost:4000/ and give a look at the ToDo App.
 
  ## Main features
 
