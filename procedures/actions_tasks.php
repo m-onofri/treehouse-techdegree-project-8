@@ -1,5 +1,5 @@
 <?php
-require_once "bootstrap.php";
+require_once __DIR__ . '/../inc/bootstrap.php';
 
 //Get data from the task form
 $action = request()->get('action');

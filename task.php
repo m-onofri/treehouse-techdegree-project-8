@@ -26,7 +26,7 @@ include 'inc/header.php';
                 echo "<p class='message'>$error_message</p>";
             }
             ?>
-            <form class="form-container form-add" method="post" action="inc/actions_tasks.php">
+            <form class="form-container form-add" method="post" action="procedures/actions_tasks.php">
                 <table>
                     <tr>
                         <th><label for="task">Task<span class="required">*</span></label></th>

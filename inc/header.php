@@ -63,7 +63,7 @@
           <?php if (isAuthenticated()) { ?>
             <!-- Display My Account and Logout links if the user is authenticated -->
             <li class="nav-item task<?php if ($page == "account") { echo " on"; } ?>"><a class="nav-link" href="/account.php">My Account</a></li>
-            <li class="nav-item tasks"><a class="nav-link" href="/inc/doLogout.php">Logout</a></li>
+            <li class="nav-item tasks"><a class="nav-link" href="/procedures/doLogout.php">Logout</a></li>
           <?php } else { ?>
             <!-- otherwise display Login and Register links -->
             <li class="nav-item tasks<?php if ($page == "login") { echo " on"; } ?>"><a class="nav-link" href="/login.php">Login</a></li>
