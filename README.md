@@ -26,7 +26,7 @@ cd public
 php -S localhost:4000
 ```
 
-In your browser, go to http://localhost:4000/ and give a look at the ToDo App.
+In your browser, go to http://localhost:4000/, register yourself to the app and play with it.
 
  ## Main features
 
